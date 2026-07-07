@@ -51,6 +51,10 @@ sports-center-waitlist/
 │   ├── clients.html
 │   ├── add_client.html
 │   └── search_clients.html
+├── screenshots/
+│   ├── clients-page.jpg
+│   ├── add-client-page.jpg
+│   └── search-client-page.jpg
 └── README.md
 ```
 
