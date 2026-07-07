@@ -50,7 +50,6 @@ body {
     margin: 0 auto;
 }
 
-/* Header */
 
 .site-header {
     padding: 14px 0;
@@ -89,7 +88,6 @@ body {
     box-shadow: 0 0 0 5px rgba(217, 255, 74, 0.25);
 }
 
-/* Navigation */
 
 .nav {
     display: flex;
@@ -115,7 +113,6 @@ body {
     border-color: var(--tennis);
 }
 
-/* Page card */
 
 .page-content {
     background: var(--surface);
@@ -145,7 +142,6 @@ p {
     line-height: 1.5;
 }
 
-/* Forms */
 
 form {
     max-width: 620px;
@@ -213,7 +209,6 @@ button:active {
     transform: translateY(0);
 }
 
-/* Filter form */
 
 form[method="get"] {
     display: flex;
@@ -244,7 +239,6 @@ form[method="get"] button:hover {
     color: #263000;
 }
 
-/* Table */
 
 .table-wrapper {
     width: 100%;
@@ -305,7 +299,6 @@ tbody td:first-child {
     color: var(--blue-900);
 }
 
-/* Чуть сжимаем отдельные колонки */
 
 tbody td:nth-child(1),
 thead th:nth-child(1) {
@@ -357,9 +350,6 @@ thead th:nth-child(10) {
     width: 8%;
 }
 
-/* Table actions */
-
-/* Table actions */
 
 td form,
 .table-form {
@@ -387,8 +377,6 @@ td button,
     white-space: nowrap;
 } 
 
-/* Details */
-
 hr {
     border: none;
     border-top: 1px solid var(--border);
@@ -399,7 +387,6 @@ hr {
     color: #9aacbd;
 }
 
-/* Empty state */
 
 .page-content > p:last-child {
     background: var(--blue-100);
@@ -408,7 +395,6 @@ hr {
     padding: 12px 14px;
 }
 
-/* Mobile */
 
 @media (max-width: 900px) {
     .site-header .container {
