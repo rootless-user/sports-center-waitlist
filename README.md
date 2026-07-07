@@ -100,6 +100,9 @@ The project includes a simple .bat file for launching the app on Windows:
 start_waitlist.bat
 ```
 
+---
+
+
 ## Screenshots
 
 | Client List | Add Client |
