@@ -68,7 +68,7 @@ cd sports-center-waitlist
 Create and activate a virtual environment:
 
 ```bash
-python3 venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
