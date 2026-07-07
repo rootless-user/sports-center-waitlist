@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Список клиентов</h2>
+
+    <form method="get" action="/clients">
+        <label>Фильтр по статусу:</label>
+
+        <select name="status">
+            <option value="">Все</option>
+            <option value="Ожидает" {% if status_filter == "Ожидает" %}selected{% endif %}>Ожидает</option>
+            <option value="Написали" {% if status_filter == "Написали" %}selected{% endif %}>Написали</option>
+            <option value="Ответил" {% if status_filter == "Ответил" %}selected{% endif %}>Ответил</option>
+            <option value="Записан" {% if status_filter == "Записан" %}selected{% endif %}>Записан</option>
+            <option value="Не актуально" {% if status_filter == "Не актуально" %}selected{% endif %}>Не актуально</option>
+            <option value="Отказался" {% if status_filter == "Отказался" %}selected{% endif %}>Отказался</option>
+        </select>
+
+        <button type="submit">Показать</button>
+    </form>
+
+    <br>
+
+    {% if clients %}
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Соцсеть</th>
+                    <th>Дни</th>
+                    <th>Время</th>
+                    <th>Тренер</th>
+                    <th>Статус</th>
+                    <th>Комментарий</th>
+                    <th>Дата</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>{{ client["name"] }}</td>
+                        <td>{{ client["phone"] }}</td>
+                        <td>{{ client["social_contact"] }}</td>
+                        <td>{{ client["preferred_days"] }}</td>
+                        <td>{{ client["preferred_time"] }}</td>
+                        <td>{{ client["trainer_preference"] }}</td>
+
+                        <td>
+                            <form method="post" action="/update-status/{{ client['id'] }}" class="table-form">
+                                <select name="status">
+                                    <option value="Ожидает" {% if client["status"] == "Ожидает" %}selected{% endif %}>Ожидает</option>
+                                    <option value="Написали" {% if client["status"] == "Написали" %}selected{% endif %}>Написали</option>
+                                    <option value="Ответил" {% if client["status"] == "Ответил" %}selected{% endif %}>Ответил</option>
+                                    <option value="Записан" {% if client["status"] == "Записан" %}selected{% endif %}>Записан</option>
+                                    <option value="Не актуально" {% if client["status"] == "Не актуально" %}selected{% endif %}>Не актуально</option>
+                                    <option value="Отказался" {% if client["status"] == "Отказался" %}selected{% endif %}>Отказался</option>
+                                </select>
+
+                                <button type="submit">Обновить</button>
+                            </form>
+                        </td>
+
+                        <td>{{ client["comment"] }}</td>
+                        <td>{{ client["created_at"] }}</td>
+
+                        <td>
+                            <form method="post"
+                                  action="/delete-client/{{ client['id'] }}"
+                                  onsubmit="return confirm('Удалить клиента из списка?');"
+                                  class="table-form">
+                                <button type="submit" class="delete-button">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p>Клиенты не найдены.</p>
+    {% endif %}
+{% endblock %}

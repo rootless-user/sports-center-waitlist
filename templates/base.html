@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список ожидания/Южный</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Список ожидания/Южный</h1>
+
+            <nav class="nav">
+                <a href="/add-client">Добавить клиента</a>
+                <a href="/clients">Список клиентов</a>
+                <a href="/search">Подбор клиента</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

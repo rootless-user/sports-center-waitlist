@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Подбор клиента под свободное окно</h2>
+
+    <form method="get" action="/search">
+        <p>
+            <label>День недели:</label><br>
+            <input type="text" name="day" value="{{ day }}" placeholder="например: среда">
+        </p>
+
+        <p>
+            <label>Время:</label><br>
+            <input type="text" name="time" value="{{ preferred_time }}" placeholder="например: после 18:00">
+        </p>
+
+        <p>
+            <label>Тренер:</label><br>
+            <input type="text" name="trainer" value="{{ trainer }}" placeholder="например: Мария">
+        </p>
+
+        <p>
+            <button type="submit">Найти клиентов</button>
+        </p>
+    </form>
+
+    <hr>
+
+    <h3>Подходящие клиенты</h3>
+
+    {% if clients %}
+        <table border="1" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Соцсеть</th>
+                    <th>Дни</th>
+                    <th>Время</th>
+                    <th>Тренер</th>
+                    <th>Комментарий</th>
+                    <th>Дата добавления</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>{{ client["name"] }}</td>
+                        <td>{{ client["phone"] }}</td>
+                        <td>{{ client["social_contact"] }}</td>
+                        <td>{{ client["preferred_days"] }}</td>
+                        <td>{{ client["preferred_time"] }}</td>
+                        <td>{{ client["trainer_preference"] }}</td>
+                        <td>{{ client["comment"] }}</td>
+                        <td>{{ client["created_at"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Подходящих клиентов не найдено.</p>
+    {% endif %}
+{% endblock %}

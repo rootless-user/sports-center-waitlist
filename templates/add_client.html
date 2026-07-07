@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Добавить клиента</h2>
+
+    <form method="post">
+        <p>
+            <label>Имя клиента:</label><br>
+            <input type="text" name="name" required>
+        </p>
+
+        <p>
+            <label>Телефон:</label><br>
+            <input type="text" name="phone">
+        </p>
+
+        <p>
+            <label>Соцсеть / мессенджер:</label><br>
+            <input type="text" name="social_contact">
+        </p>
+
+        <p>
+            <label>Желаемые дни:</label><br>
+            <input type="text" name="preferred_days" placeholder="например: понедельник, среда">
+        </p>
+
+        <p>
+            <label>Желаемое время:</label><br>
+            <input type="text" name="preferred_time" placeholder="например: после 18:00">
+        </p>
+
+        <p>
+            <label>Предпочтительный тренер:</label><br>
+            <input type="text" name="trainer_preference">
+        </p>
+
+        <p>
+            <label>Комментарий:</label><br>
+            <textarea name="comment"></textarea>
+        </p>
+
+        <p>
+            <button type="submit">Сохранить клиента</button>
+        </p>
+    </form>
+{% endblock %}
