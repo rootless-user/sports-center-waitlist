@@ -1,17 +1,49 @@
 # Sports Center Waitlist
 
-Simple web application for managing a waiting list for individual training sessions at a sports center.
+A simple Flask + SQLite web application for managing client waitlist requests in a sports center.
 
-## Goal
+Built to solve a real workflow problem: administrators need a structured way to store client requests, preferences, trainer choices, comments, and current status.
 
-Help an administrator store clients who want individual training sessions and quickly find a suitable client when a time slot becomes available.
+---
 
-## Features MVP
+## Features
 
-- Add client
-- View clients
-- Store phone and social contact
-- Store preferred days and time
-- Store trainer preference
-- Store status
-- Filter clients by status
+- Add new clients to the waitlist
+- Store contact information and social media links
+- Track preferred days and time
+- Save trainer preferences
+- Update client status
+- Add comments for each request
+- Search and view waitlist records
+- Local SQLite database
+- Simple browser-based interface
+
+---
+
+## Tech Stack
+
+- Python
+- Flask
+- SQLite
+- HTML
+- CSS
+- Git / GitHub
+
+---
+
+## Project Structure
+
+```text
+sports-center-waitlist/
+├── app.py
+├── schema.sql
+├── requirements.txt
+├── start_waitlist.bat
+├── static/
+│   └── style.css
+├── templates/
+│   ├── base.html
+│   ├── clients.html
+│   ├── add_client.html
+│   └── search_clients.html
+└── README.md
